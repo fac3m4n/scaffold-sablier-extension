@@ -12,7 +12,7 @@ Sablier is a protocol for real-time finance on Ethereum. It allows for the creat
 
 ## Features
 
-- Integration of Sablier smart contracts with Scaffold-ETH 2
+- Integration of Sablier smart contracts with Scaffold-ETH 2 (currently support DAI on Sepolia)
 - Example components for creating and managing token streams
 - Custom hooks for interacting with Sablier protocol
 - Demonstration of linear and dynamic streaming options
