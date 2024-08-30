@@ -2,6 +2,9 @@
 
 This extension integrates Sablier, a decentralized money streaming protocol, with the Scaffold-ETH 2 development stack. It provides a starting point for developers to build applications with streaming payments functionality on Ethereum.
 
+![screenshot1](screenshot1.png)
+![screenshot2](screenshot2.png)
+
 ## What is Scaffold-ETH 2?
 
 Scaffold-ETH 2 is an open-source toolkit for building decentralized applications (dApps) on Ethereum. It uses NextJS, RainbowKit, Wagmi, Viem, and TypeScript, supporting both Hardhat and Foundry. With features like live-updating frontends, pre-built components, custom hooks, and a built-in block explorer, it accelerates dApp development from prototype to production.
