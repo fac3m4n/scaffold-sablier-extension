@@ -2,6 +2,7 @@
 
 import { useCallback } from "react";
 import { Core, ERC20 } from "../../../../utils/sablier/models";
+import { notification } from "../../../../utils/scaffold-eth";
 import { Cancelability, Recipient, Segments, Token, Transferability } from "./fields";
 import useStoreForm, { prefill } from "./store";
 import _ from "lodash";
@@ -19,6 +20,7 @@ export function DynamicStreamForm() {
   const onApprove = useCallback(async () => {
     if (isConnected) {
       const state = useStoreForm.getState();
+      const approveLoading = notification.loading(<>Approving...</>);
       try {
         state.api.update({ error: undefined });
         const totalAmount = state.segments.reduce((sum, segment) => {
@@ -32,7 +34,12 @@ export function DynamicStreamForm() {
           },
           state.api.log,
         );
+        notification.remove(approveLoading);
+        notification.success(<>Approved successfully!</>, {
+          icon: "🎉",
+        });
       } catch (error) {
+        notification.remove(approveLoading);
         state.api.update({ error: _.toString(error) });
       }
     }
@@ -41,12 +48,20 @@ export function DynamicStreamForm() {
   const onCreate = useCallback(async () => {
     if (isConnected) {
       const state = useStoreForm.getState();
+      const createLoading = notification.loading(<>Creating Dynamic stream...</>);
+
       console.log("State being passed to doCreateDynamic:", state);
       try {
         state.api.update({ error: undefined });
         await Core.doCreateDynamic(state, state.api.log);
+        notification.remove(createLoading);
+        notification.success(<>Dynamic Stream created successfully!</>, {
+          icon: "🎉",
+        });
       } catch (error) {
         console.error("Error in onCreate:", error);
+        notification.remove(createLoading);
+        notification.error(<>Error creating stream...</>);
         state.api.update({ error: _.toString(error) });
       }
     }

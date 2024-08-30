@@ -18,8 +18,8 @@ export function LinearStreamForm() {
   const onApprove = useCallback(async () => {
     if (isConnected) {
       const state = useStoreForm.getState();
+      const approveLoading = notification.loading(<>Approving...</>);
       try {
-        const approveLoading = notification.loading(<>Approving...</>);
         state.api.update({ error: undefined });
         await ERC20.doApprove("SablierV2LockupLinear", state, state.api.log);
         notification.remove(approveLoading);
@@ -28,8 +28,8 @@ export function LinearStreamForm() {
         });
       } catch (error) {
         notification.error(<>Error approving</>);
+        notification.remove(approveLoading);
         console.log(error);
-
         state.api.update({ error: _.toString(error) });
       }
     }
@@ -42,18 +42,19 @@ export function LinearStreamForm() {
   const onCreate = useCallback(async () => {
     if (isConnected) {
       const state = useStoreForm.getState();
+      const createLoading = notification.loading(<>Creating Linear stream...</>);
+
       try {
-        const createLoading = notification.loading(<>Creating stream...</>);
         state.api.update({ error: undefined });
         await Core.doCreateLinear(state, state.api.log);
         notification.remove(createLoading);
-        notification.success(<>Stream created successfully!</>, {
+        notification.success(<>Linear Stream created successfully!</>, {
           icon: "🎉",
         });
       } catch (error) {
-        notification.error(<>Error creating stream</>);
+        notification.error(<>Error creating stream...</>);
+        notification.remove(createLoading);
         console.log(error);
-
         state.api.update({ error: _.toString(error) });
       }
     }
