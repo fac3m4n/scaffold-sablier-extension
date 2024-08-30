@@ -28,8 +28,9 @@ function CreateStreamPage() {
 
   const onMint = useCallback(async () => {
     if (walletClient) {
+      const notificationId = notification.loading("Minting DAI...");
+
       try {
-        const notificationId = notification.loading("Minting DAI...");
         await ERC20.doMint(SEPOLIA_DAI);
         notification.remove(notificationId);
         notification.success("Minted DAI");
