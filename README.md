@@ -13,6 +13,12 @@ Scaffold-ETH 2 is an open-source toolkit for building decentralized applications
 
 Sablier is a protocol for real-time finance on Ethereum. It allows for the creation of token streams, enabling continuous, gradual payments over time. This can be used for various applications such as salaries, subscriptions, vesting schedules, and more.
 
+## NFTs
+
+The Sablier Protocol wraps every stream in an ERC-721 non-fungible token (NFT), making the stream recipient the owner of the NFT. The recipient can transfer the NFT to another address, and this also transfers the right to withdraw funds from the stream, including any funds already streamed.
+
+![nfts](nfts.png)
+
 ## Features
 
 - Integration of Sablier smart contracts with Scaffold-ETH 2 (currently support DAI on Sepolia)
