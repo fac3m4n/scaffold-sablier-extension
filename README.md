@@ -1,17 +1,13 @@
 # Sablier Extension for Scaffold-ETH 2
 
-This extension integrates Sablier, a decentralized money streaming protocol, with the Scaffold-ETH 2 development stack. It provides a starting point for developers to build applications with streaming payments functionality on Ethereum.
+This extension integrates Sablier, a decentralized money streaming protocol, with the Scaffold-ETH 2 stack. It provides a starting point for developers to build applications with streaming payments functionality on Ethereum.
 
 ![screenshot1](screenshot1.png)
 ![screenshot2](screenshot2.png)
 
-## What is Scaffold-ETH 2?
-
-Scaffold-ETH 2 is an open-source toolkit for building decentralized applications (dApps) on Ethereum. It uses NextJS, RainbowKit, Wagmi, Viem, and TypeScript, supporting both Hardhat and Foundry. With features like live-updating frontends, pre-built components, custom hooks, and a built-in block explorer, it accelerates dApp development from prototype to production.
-
 ## What is Sablier?
 
-Sablier is a protocol for real-time finance on Ethereum. It allows for the creation of token streams, enabling continuous, gradual payments over time. This can be used for various applications such as salaries, subscriptions, vesting schedules, and more.
+**[Sablier](https://sablier.com)** is a protocol for real-time finance on Ethereum. It allows for the creation of token streams, enabling continuous, gradual payments over time. This can be used for various applications such as salaries, subscriptions, vesting schedules, and more.
 
 ## NFTs
 
@@ -21,8 +17,8 @@ The Sablier Protocol wraps every stream in an ERC-721 non-fungible token (NFT), 
 
 ## Features
 
-- Integration of Sablier smart contracts with Scaffold-ETH 2 (currently support DAI on Sepolia)
-- Example components for creating and managing token streams
+- Integration of Sablier smart contracts with Scaffold-ETH 2
+- Example components for creating and fetching token streams
 - Custom hooks for interacting with Sablier protocol
 - Demonstration of linear and dynamic streaming options
 
