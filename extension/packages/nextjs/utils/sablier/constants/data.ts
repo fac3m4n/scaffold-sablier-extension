@@ -1,67 +1,27 @@
-import type { IAddress, ICreateWithDeltas, ICreateWithDurations } from "../types";
-import { SEPOLIA_DAI } from "./contracts";
+/**
+ *
+ * Aliases - https://github.com/sablier-labs/v2-subgraphs/blob/main/packages/constants/src/addresses/sepolia.ts
+ * -------------------------------------------------------------------------------------
+ *
+ *To provide a simple visual structure, while also accounting for future stream types (backwards compatibility) we use the following abbreviations as aliases:
+ *
+ * Lockup Linear V2.0 contracts become LL, e.g. LL-137-1
+ * Lockup Linear V2.1 contracts become LL2, e.g. LL2-137-1
+ * Lockup Dynamic V2.0 contracts become LD, e.g. LD-137-1
+ * Lockup Dynamic V2.1 contracts become LD2, e.g. LD2-137-1
+ *
+ * -------------------------------------------------------------------------------------
+ *
+ */
 
-export const APPROVE_BATCH = [
-  "SablierV2Batch",
-  {
-    amount: "1000000",
-    token: SEPOLIA_DAI,
-  },
-] as const;
-
-export const APPROVE_LOCKUP_DYNAMIC = [
-  "SablierV2LockupDynamic",
-  {
-    amount: "1000000",
-    token: SEPOLIA_DAI,
-  },
-] as const;
-
-export const APPROVE_LOCKUP_LINEAR = [
-  "SablierV2LockupLinear",
-  {
-    amount: "1000000",
-    token: SEPOLIA_DAI,
-  },
-] as const;
-
-export const LOCKUP_LINEAR_WITH_DURATIONS: ICreateWithDurations = [
-  "<< YOUR CONNECTED ADDRESS AS THE SENDER >>" as IAddress, // Sender address
-  "0xCAFE000000000000000000000000000000000000", // Recipient address
-  1000n * 10n ** 18n, // 1000 DAI (18 decimals)
-  SEPOLIA_DAI, // DAI address
-  true, // Cancelable
-  true, // Transferable
-  { cliff: 86400n, total: 86400n * 4n }, // Cliff for one day, ends after 4 (total) days - starts when the transaction is executed onchain
-  {
-    account: "0x0000000000000000000000000000000000000000" as IAddress,
-    fee: 0n,
-  }, // Broker - set this to your own address to charge a fee
+export const linear: string[][] = [
+  ["0xd4300c5bc0b9e27c73ebabdc747ba990b1b570db", "LL", "V20"],
+  ["0x7a43f8a888fa15e68c103e18b0439eb1e98e4301", "LL2", "V21"],
+  ["0x3e435560fd0a03ddf70694b35b673c25c65abb6c", "LL3", "V22"],
 ];
 
-/** 🚨🕣 The END DATE (last parameter in the range tuple) has to be in the future. Make sure to move it at least a few hours after the current moment */
-
-export const LOCKUP_DYNAMIC_WITH_DELTAS: ICreateWithDeltas = [
-  "<< YOUR CONNECTED ADDRESS AS THE SENDER >>" as IAddress, // Sender address
-  true, // Cancelable
-  true, // Transferable
-  "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045" as IAddress, // Recipient address
-  1000n * 10n ** 18n, // 1000 DAI (18 decimals)
-  SEPOLIA_DAI, // DAI address
-  {
-    account: "0x0000000000000000000000000000000000000000" as IAddress,
-    fee: 0n,
-  }, // Broker - set this to your own address to charge a fee
-  [
-    {
-      amount: 250n * 10n ** 18n,
-      exponent: 3n * 10n ** 18n,
-      delta: 86400n * 1n,
-    }, // Distribute DAI 250 exponentially (exponent = 3), the first day (86400 seconds)
-    {
-      amount: 750n * 10n ** 18n,
-      exponent: 3n * 10n ** 18n,
-      delta: 86400n * 1n,
-    }, // Distribute DAI 750 exponentially (exponent = 3), the second day (86400 seconds)
-  ],
+export const dynamic: string[][] = [
+  ["0x421e1e7a53ff360f70a2d02037ee394fa474e035", "LD", "V20"],
+  ["0xc9940ad8f43aad8e8f33a4d5dbbf0a8f7ff4429a", "LD2", "V21"],
+  ["0x73bb6dd3f5828d60f8b3dbc8798eb10fba2c5636", "LD3", "V22"],
 ];

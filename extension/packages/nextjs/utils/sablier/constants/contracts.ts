@@ -26,6 +26,14 @@ export const contracts = {
 
 export const SEPOLIA_DAI = "0x776b6fC2eD15D6Bb5Fc32e0c89DE68683118c62A";
 
+export const SEPOLIA_SABLIER_V2_LOCKUP_LINEAR_NFT = "0xd4300c5bc0b9e27c73ebabdc747ba990b1b570db";
+export const SEPOLIA_SABLIER_V2_LOCKUP_LINEAR_NFT_2 = "0x7a43f8a888fa15e68c103e18b0439eb1e98e4301";
+export const SEPOLIA_SABLIER_V2_LOCKUP_LINEAR_NFT_3 = "0x3e435560fd0a03ddf70694b35b673c25c65abb6c";
+
+export const SEPOLIA_SABLIER_V2_LOCKUP_DYNAMIC_NFT = "0x421e1e7a53ff360f70a2d02037ee394fa474e035";
+export const SEPOLIA_SABLIER_V2_LOCKUP_DYNAMIC_NFT_2 = "0xc9940ad8f43aad8e8f33a4d5dbbf0a8f7ff4429a";
+export const SEPOLIA_SABLIER_V2_LOCKUP_DYNAMIC_NFT_3 = "0x73bb6dd3f5828d60f8b3dbc8798eb10fba2c5636";
+
 export const REGEX_ADDRESS = /^[0-9xXAaBbCcDdEeFf]+$/;
 export const REGEX_FLOAT = /^[0-9]+[.,]?[0-9]+?$/;
 export const REGEX_INTEGER = /^[0-9]+$/;

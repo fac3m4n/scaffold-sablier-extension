@@ -1,5 +1,5 @@
 import { ChangeEvent, useCallback } from "react";
-import { REGEX_ADDRESS, REGEX_FLOAT, REGEX_INTEGER } from "../../../../utils/sablier/constants";
+import { REGEX_ADDRESS, REGEX_FLOAT, REGEX_INTEGER, SEPOLIA_TOKENS } from "../../../../utils/sablier/constants";
 import useStoreForm from "./store";
 import _ from "lodash";
 
@@ -84,33 +84,41 @@ export function Token() {
   }));
 
   const onChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
-      const value = (() => {
-        const input = e.target.value;
-        if (_.isNil(input) || _.toString(input).length === 0) {
-          return "";
-        }
-        return _.toString(input);
-      })();
-
-      update({ token: value });
+    (e: ChangeEvent<HTMLSelectElement>) => {
+      update({ token: e.target.value });
     },
     [update],
   );
+
+  const selectedToken = SEPOLIA_TOKENS.find(t => t.address === token);
 
   return (
     <div className="flex flex-col">
       <label className="label">
         <span className="label-text">Token:</span>
       </label>
-      <input
-        className="input input-bordered w-full max-w-full"
-        id={"token"}
-        value={token}
-        onChange={onChange}
-        type={"text"}
-        placeholder={"Address of the ERC-20 token ..."}
-      />
+      <div className="relative">
+        <select className="select select-bordered w-full max-w-full pl-10" id="token" value={token} onChange={onChange}>
+          <option value="">Select a token</option>
+          {SEPOLIA_TOKENS.map(t => (
+            <option key={t.address} value={t.address}>
+              {t.symbol} - {t.name}
+            </option>
+          ))}
+        </select>
+        {selectedToken && (
+          <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+            {/* eslint-disable-next-line */}
+            <img
+              src={selectedToken.logoURI}
+              alt={selectedToken.symbol}
+              width={24}
+              height={24}
+              className="rounded-full"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

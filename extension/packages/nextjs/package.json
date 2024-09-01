@@ -2,6 +2,7 @@
   "dependencies": {
     "@sablier/v2-core": "1.1.2",
     "@sablier/v2-periphery": "1.1.1",
+    "alchemy-sdk": "^3.4.1",
     "bignumber.js": "^9.1.2",
     "lodash": "^4.17.21"
   }
