@@ -5,5 +5,8 @@
     "alchemy-sdk": "^3.4.1",
     "bignumber.js": "^9.1.2",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.7"
   }
 }
