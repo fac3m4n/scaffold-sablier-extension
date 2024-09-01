@@ -28,7 +28,7 @@ The Sablier Protocol wraps every stream in an ERC-721 non-fungible token (NFT), 
 
 ## Getting Started
 
-   ```
+   ```bash
    npx create-eth@latest -e fac3m4n/scaffold-sablier-extension
    ```
 
