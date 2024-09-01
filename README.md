@@ -1,7 +1,9 @@
 # Sablier Extension for Scaffold-ETH 2
 
 <h4 align="center">
-  <a href="https://scaffold-sablier-template-nextjs.vercel.app/">Template demo</a>
+  <a href="https://scaffold-sablier-template-nextjs.vercel.app/">🌐 Template dapp</a> |
+    <a href="https://www.loom.com/share/c893f2167c8f4f70a94d7517894cb5d2?sid=8c56e93a-bc00-4cf0-a9c2-d5802e8afdba">🎥 Video</a>
+
 </h4>
 
 This extension integrates Sablier, a decentralized money streaming protocol, with the Scaffold-ETH 2 stack. It provides a starting point for developers to build applications with streaming payments functionality on Ethereum.
